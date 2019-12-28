@@ -2,6 +2,7 @@
 from __future__ import unicode_literals
 
 from django.shortcuts import render
+<<<<<<< HEAD
 from django.contrib.auth import authenticate
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login as do_login
@@ -56,3 +57,7 @@ def mostrar_register(request):
 class Personalist(ListView):
 	model = Persona
 	template_name = 'admin/index.html'
+=======
+
+# Create your views here.
+>>>>>>> 28fbe43d511371f5e8b87cfc926238a44b3c3d84
