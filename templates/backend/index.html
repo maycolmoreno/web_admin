@@ -5,8 +5,7 @@
 {% block title %}
 {{user.username|capfirst}}
 {% endblock title%}
-{% block estilo %}
-<link href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,600,700,800,900&display=swap" rel="stylesheet">
+{% comment %} <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,600,700,800,900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="{% static 'css/open-iconic-bootstrap.min.css' %}">
 <link rel="stylesheet" href="{% static 'css/animate.css' %}">
 <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
@@ -19,8 +18,8 @@
 <link rel="stylesheet" href="{% static 'css/flaticon.css' %}">
 <link rel="stylesheet" href="{% static 'css/icomoon.css' %}">
 <link rel="stylesheet" href="{% static 'css/style.css' %}">
-{% endblock estilo %}
-{% block js %}
+{%block estilos%}
+{% endblock estilos%}
 <script src="{% static 'js/jquery.min.js' %}"></script>
 <script src="{% static 'js/jquery-migrate-3.0.1.min.js' %}"></script>
 <script src="{% static 'js/popper.min.js' %}"></script>
@@ -38,30 +37,10 @@
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
 <script src="{% static 'js/google-map.js' %}"></script>
 <script src="{% static 'js/main.js' %}"></script>
-{% endblock js %}
+{% block js %}
+{% endblock js %} {% endcomment %}
 {% endblock head %}
 {% block body %}
-{% block nav %}
-<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
-	<div class="container">
-		<a class="navbar-brand" href="{% url 'auth_login' %}">Inicio Sesion</a>
-	    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-		    <span class="oi oi-menu"></span> Menu
-	    </button>
-		<div class="collapse navbar-collapse" id="ftco-nav">
-	    	<ul class="navbar-nav ml-auto">
-				<li class="nav-item active"><a href="index.html" class="nav-link">Inicio</a></li>
-				<li class="nav-item"><a href="about.html" class="nav-link">Acerca</a></li>
-				<li class="nav-item"><a href="agent.html" class="nav-link">Agente</a></li>
-				<li class="nav-item"><a href="services.html" class="nav-link">Servicio</a></li>
-				<li class="nav-item"><a href="properties.html" class="nav-link">Propiedades</a></li>
-				<li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
-				<li class="nav-item"><a href="contact.html" class="nav-link">Contacto</a></li>
-	        </ul>
-	    </div>
-	</div>
-</nav>
-{% endblock nav %}
 {% block header %}
 <div class="hero-wrap ftco-degree-bg" style="background-image: url('{% static 'img/bg_1.jpg' %}');" data-stellar-background-ratio="0.5">
     <div class="overlay"></div>
@@ -95,7 +74,7 @@
     </div>
 	{% endblock header %}
 	{% block content %}
-     <section class="ftco-section ftco-no-pb">
+    <section class="ftco-section ftco-no-pb">
       <div class="container">
       	<div class="row justify-content-center">
           <div class="col-md-12 heading-section text-center ftco-animate mb-5">
@@ -144,8 +123,6 @@
       </div>
     </section>
 	{% endblock content %}
-
-
 	{% block contenido1 %}
     <section class="ftco-section goto-here">
     	<div class="container">
@@ -215,7 +192,6 @@
     	</div>
     </section>
 	{% endblock contenido1 %}
-
 	{% block contenido2 %}
     <section class="ftco-section ftco-degree-bg services-section img mx-md-5" style="background-image: url({% static 'img/bg_2.jpg' %});">
     	<div class="overlay"></div>
@@ -271,7 +247,6 @@
     	</div>
     </section>
 	{% endblock contenido2 %}
-
 	{% block contenido3 %}
     <section class="ftco-section ftco-no-pb">
 			<div class="container">
@@ -480,65 +455,6 @@
     </section>
 	{% endblock contenido6 %}
 
-	{% block footer %}
-    <footer class="ftco-footer ftco-section">
-      <div class="container">
-        <div class="row mb-5">
-          <div class="col-md">
-            <div class="ftco-footer-widget mb-4">
-              <h2 class="ftco-heading-2">Uptown</h2>
-              <p>Far far away, behind the word mountains, far from the countries.</p>
-              <ul class="ftco-footer-social list-unstyled mt-5">
-                <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
-                <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
-                <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-md">
-            <div class="ftco-footer-widget mb-4 ml-md-4">
-              <h2 class="ftco-heading-2">Community</h2>
-              <ul class="list-unstyled">
-                <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Search Properties</a></li>
-                <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>For Agents</a></li>
-                <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Reviews</a></li>
-                <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>FAQs</a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-md">
-            <div class="ftco-footer-widget mb-4 ml-md-4">
-              <h2 class="ftco-heading-2">About Us</h2>
-              <ul class="list-unstyled">
-                <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Our Story</a></li>
-                <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Meet the team</a></li>
-                <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Careers</a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-md">
-             <div class="ftco-footer-widget mb-4">
-              <h2 class="ftco-heading-2">Company</h2>
-              <ul class="list-unstyled">
-                <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>About Us</a></li>
-                <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Press</a></li>
-                <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Contact</a></li>
-                <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Careers</a></li>
-              </ul>
-            </div>from .forms import dget mb-4">
-            	<h2 class="ftco-heading-2">Have a Questions?</h2>
-            	<div class="block-23 mb-3">
-	              <ul>
-	                <li><span class="icon icon-map-marker"></span><span class="text">203 Fake St. Mountain View, San Francisco, California, USA</span></li>
-	                <li><a href="#"><span class="icon icon-phone"></span><span class="text">+2 392 3929 210</span></a></li>
-	                <li><a href="#"><span class="icon icon-envelope pr-4"></span><span class="text">info@yourdomain.com</span></a></li>
-	              </ul>
-	            </div>
-            </div>
-			</div>
-        </div>
-    </div>
-    </footer>
-	{% endblock footer %}
+
 {% endblock body %}
 

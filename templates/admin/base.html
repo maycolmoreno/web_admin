@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 {% load static %}
 <html lang="es">
-{% block head%}
+
 <head>
 <title>{% block title %} Administracion {% endblock %}</title>
     <meta charset="utf-8">
@@ -9,13 +9,12 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Quixlab - Bootstrap Admin Dashboard Template by Themefisher.com</title>
     <link rel="icon" type="image/png" sizes="16x16" href="{% static 'admin/images/favicon.png' %}">
-    {% block estilo %}
     <link href="{% static 'admin/plugins/pg-calendar/css/pignose.calendar.min.css' %}" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'admin/plugins/chartist/css/chartist.min.css' %}">
     <link rel="stylesheet" href="{% static 'admin/plugins/chartist-plugin-tooltips/css/chartist-plugin-tooltip.css' %}">
     <link href="{% static 'admin/css/style.css' %}" rel="stylesheet">
-    {% endblock estilo %}
-{% block js %}
+{% block estilo %}
+{% endblock estilo %}
 <script src="{% static 'admin/plugins/common/common.min.js' %}"></script>
     <script src="{% static 'admin/js/custom.min.js' %}"></script>
     <script src="{% static 'admin/js/settings.js' %}"></script>
@@ -32,8 +31,10 @@
     <script src="{% static 'admin/plugins/pg-calendar/js/pignose.calendar.min.js' %}"></script>
     <script src="{% static 'admin/plugins/chartist/js/chartist.min.js' %}"></script>
     <script src="{% static 'admin/plugins/chartist-plugin-tooltips/js/chartist-plugin-tooltip.min.js' %}"></script>
-    <script src="{% static 'admin/js/dashboard/dashboard-1.js' %}"></script>
+    <script src="{% static 'admin/js/dashboard-1.js' %}"></script>
+{% block js %}
 {% endblock js %}
+{% block head%}
 {% endblock head %}
 </head>
 

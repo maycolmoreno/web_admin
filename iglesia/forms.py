@@ -12,17 +12,8 @@ class loginForm(forms.Form):
 class PersonaForm(forms.ModelForm):
 	class Meta:
 		model = Persona
-		fields = ('id_persona', 'nombre', 'apellido',
-		          'cedula', 'direccion', 'telefono')
+		fields = ('id_persona', 'nombre', 'apellido','cedula', 'direccion', 'telefono')
 		widgets = {'id_persona': forms.HiddenInput()}
-
-# class ClienteForm(forms.ModelForm):
-# 	class Meta:
-# 		model = Cliente
-# 		fields = ('id_cliente','nombre','apellidos', 'cedula','direccion','telefono','estado','nacionalidad','email')
-
-# 		widgets = {'id_cliente': forms.HiddenInput()}
-
 
 
 class UsuarioForm(forms.ModelForm):
@@ -61,6 +52,12 @@ class RegistroForm(UserCreationForm):
 					if commit:
 						user.save()
 					return user
+
+class ContactForm(forms.Form):
+	nombre = forms.CharField(required=False)
+	email = forms.EmailField()
+	mensaje = forms.CharField(widget=forms.Textarea)
+    
 # class ProductoForm(forms.ModelForm):
 # 	class Meta:
 # 		model = Producto

@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
-
 from django.shortcuts import render
-<<<<<<< HEAD
 from django.contrib.auth import authenticate
-from django.contrib.auth.forms import AuthenticationForm
+from django.core.urlresolvers import reverse_lazy
+from django.contrib.auth.forms import *
 from django.contrib.auth import login as do_login
-from django.views.generic import ListView
+from django.views.generic import *
 from django.shortcuts import redirect
+from django.core.mail import send_mail
 from django import forms 
 from .forms import *
 from .models import *
@@ -18,46 +18,50 @@ from .models import *
 def mostrar_inicio(request):
 	return render(request, 'backend/index.html', {})
 
+def mostrar_about(request):
+    return render(request, 'backend/about.html', {})
+
+
+def mostrar_contact(request):
+    return render(request, 'backend/contact.html', {})
+
 def mostrar_administracion(request):
 	return render(request, 'admin/index.html', {})
+def list_usuario(request):
+    return render(request, 'admin/list_usuario.html', {})
 
+def contacto(request):
+	titulo = "Contacto"
+	formulario = ContactForm(request.POST or None)
+	if formulario.is_valid():
 
-# def login(request):
-#     return render(request, "login/login.html", {})
-def mostrar_register(request):
-	form = PersonaForm(request.POST or None)
-	user = UsuarioForm(request.POST or None)
+		form_email = formulario.cleaned_data.get("email")
+		form_mensaje = formulario.cleaned_data.get("mensaje")
+		form_nombre = formulario.cleaned_data.get("nombre")
+		asunto = 'Form de Contacto'
+		email_from = settings.EMAIL_HOST_USER
+		email_to = [email_from, "otroemail@gmail.com"]
+		email_mensaje = "%s: %s enviado por %s" %(form_nombre, form_mensaje, form_email)
+		send_mail(asunto,
+			email_mensaje,
+			email_from,
+			email_to,
+			fail_silently=False
+			)
 
+			# print email, mensaje, nombre
 	context = {
-		"form":form,
-		"formu":user
-		}
-
-	if request.method == "POST":
-		form = PersonaForm(request.POST or None,request.FILES or None, initial = {"id_persona" : "0"})
-		formu = UsuarioForm(request.POST or None,  request.FILES or None, initial = {"id" : "0"})
-		if form.is_valid() and formu.is_valid():
-			print("lleuw aqui")
-
-			user = formu.save()
-			print("Guardo")
-			#form.user = User.objects.last()
-			user.set_password(user.password)
-			user.save()
-			persona = form.save(commit = False)
-			print("Guardoe")
-			persona.user = user
-			print("Guardo12")
-			persona.save()
-			return redirect('auth_login')
-	else:
-		#form = PersonaForm()
-		return render(request, "login/registration.html", {'form': form})
-
+		"formulario": formulario,
+		"titulo": titulo,
+	}
+	return render(request, "backend/contact.html", context)
+class Registro_Usuario(CreateView):
+    model = User
+    template_name = "login/registration.html"
+    form_class= UserCreationForm
+    success_url = reverse_lazy('administracion')
+    
 class Personalist(ListView):
 	model = Persona
 	template_name = 'admin/index.html'
-=======
 
-# Create your views here.
->>>>>>> 28fbe43d511371f5e8b87cfc926238a44b3c3d84

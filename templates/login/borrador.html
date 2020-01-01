@@ -100,37 +100,33 @@
 						Registrarse
 					</span>
 					{% csrf_token %}
+					
+					<div class="wrap-input100 validate-input" data-validate="Name is required">
+						<span class="label-input100">Cedula</span>
+						<input class="input100" id="cedula" type="text" name="cedula" maxlength="10" placeholder="123456789" />
+						<span class="focus-input100"></span>
+					</div>
 					<div class="wrap-input100 validate-input" data-validate="Name is required">
 						<span class="label-input100">Nombre<i class="glyphicon glyphicon-user"></i></span>
 						<input class="input100" id="nombre" type="text" name="nombre" maxlength="50" onkeypress="return validar(event,this)" placeholder="Ejem: Maria" />
 						<span class="focus-input100"></span>
 					</div>
+
+
 					<div class="wrap-input100 validate-input" data-validate="Name is required">
 						<span class="label-input100">Apellido</span>
 						<input class="input100" id="apellido" type="text" name="apellido" maxlength="50" onkeypress="return validar(event,this)" placeholder="Ejem: Perez"/>
 						<span class="focus-input100"></span>
 					</div>
 					<div class="wrap-input100 validate-input" data-validate="Name is required">
-						<span class="label-input100">Nombre de Usuario</span>
-						<input class="input100" id="cedula" type="text" name="username" maxlength="10" placeholder="123456789" />
+						<span class="label-input100">Nombre Usuario</span>
+						<input class="input100" id="username" type="text" name="username" maxlength="50" onkeypress="return validar(event,this)" placeholder="maria123"/>
 						<span class="focus-input100"></span>
+						
 					</div>
-					<div class="wrap-input100 validate-input" data-validate="Name is required">
-						<span class="label-input100">Correo<i class="glyphicon glyphicon-user"></i></span>
-						<input class="input100" id="nombre" type="text" name="email" maxlength="50"  placeholder="Ejem: maria@mail.com" />
-						<span class="focus-input100"></span>
-					</div>
-
-
 					<div class="wrap-input100 validate-input" data-validate="Name is required">
 						<span class="label-input100">Contraseña</span>
-						<input class="input100" id="apellido" type="password" name="password1" maxlength="50" placeholder="**********"/>
-						<span class="focus-input100"></span>
-					</div>
-					
-					<div class="wrap-input100 validate-input" data-validate="Name is required">
-						<span class="label-input100">Confirmar Contraseña</span>
-						<input class="input100" id="password" type="password" name="password2" maxlength="50" placeholder="**********"/>
+						<input class="input100" id="password" type="password" name="password" maxlength="50" onkeypress="return validar(event,this)" placeholder="**********"/>
 						<span class="focus-input100"></span>
 					</div>
 					<!-- ////// -->

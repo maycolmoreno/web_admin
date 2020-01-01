@@ -9,9 +9,9 @@ from iglesia import views
 
 urlpatterns = [
     url('accounts/', include('django.contrib.auth.urls')),
-    url(r'^admin/', admin.site.urls, name='admin'),
+    # url(r'^admin/', admin.site.urls, name='admin'),
     url(r'^$', views.mostrar_inicio, name='index'),
-    url(r'^administracion', views.mostrar_administracion, name='administracion'),
+    url(r'^admin', views.mostrar_administracion, name='administracion'),
 
     url(r'login', login, {'template_name': 'login/login.html'}, name='auth_login'),
     
