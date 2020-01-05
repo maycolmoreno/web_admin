@@ -63,5 +63,12 @@ class Registro_Usuario(CreateView):
     
 class Personalist(ListView):
 	model = Persona
-	template_name = 'admin/index.html'
+	template_name = 'admin/list_usuario.html'
+	
 
+
+class Crear_Usuario(CreateView):
+    model = Persona
+    template_name = "admin/crear_usuario.html"
+    form_class = PersonaForm
+    success_url = reverse_lazy('administracion')

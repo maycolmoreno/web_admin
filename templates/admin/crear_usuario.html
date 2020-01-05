@@ -1,0 +1,163 @@
+{% extends "admin/base.html" %}
+{%load static %}
+{% block head %}
+{%block title%} Creacionde usuarios {% endblock title %}
+    {% block estilo %}
+
+    {% endblock estilo %}
+{% block js %}
+
+{% endblock js %}
+{% endblock head %}
+{% block body %}
+{% block header %}
+<div class="content-body">
+
+            <div class="row page-titles mx-0">
+                <div class="col p-md-0">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="javascript:void(0)">Dashboard</a></li>
+                        <li class="breadcrumb-item active"><a href="javascript:void(0)">Home</a></li>
+                    </ol>
+                </div>
+            </div>
+            <!-- row -->
+{% block contenido %}
+            <div class="container-fluid">
+                <div class="row justify-content-center">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="form-validation">
+                                    <form class="form-valide" action="" method="post">  {% csrf_token %}
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="val-phoneus">Nombre <span class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-6">
+                                                <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ejempo: Pedro">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="val-digits">Apellido <span class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-6">
+                                                <input type="text" class="form-control" id="apellido" name="apellido" placeholder="Ejemplo: Perez">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="val-number">Cedula <span class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-6">
+                                                <input type="text" class="form-control" id="cedula" name="cedula" placeholder="1234567890">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="val-number">Fecha de nacimiento <span class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-6">
+                                                <input type="text" class="form-control" id="f_nac" name="f_nac" placeholder="1990-03-11">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="val-number">Estado <span class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-6">
+                                                <input type="text" class="form-control" id="estado" name="estado" placeholder="1 o 0">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="val-number">Genero <span class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-6">
+                                                <input type="text" class="form-control" id="genero" name="genero" placeholder="1 o 0">
+                                            </div>
+                                        </div>
+                                        {% comment %} <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="val-number">Fecha de nacimiento <span class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-md-6">
+                                        <label class="m-t-20">Default Material Date Picker</label>
+                                        <input type="text" class="form-control" placeholder="2017-06-04" id="f_nac" name="f_nac">
+                                        
+                                    </div>
+                                        </div> {% endcomment %}
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="val-range">Direccion <span class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-6">
+                                                <input type="text" class="form-control" id="direccion" name="direccion" placeholder="Villa Flora">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="val-range">Telefono <span class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-6">
+                                                <input type="text" class="form-control" id="telefono" name="telefono" placeholder="4">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="val-username">Username <span class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-6">
+                                                <input type="text" class="form-control" id="user.id" name="user" placeholder="Enter a username..">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="val-email">Email <span class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-6">
+                                                <input type="text" class="form-control" id="user.email" name="email" placeholder="Your valid email..">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="val-password">Password <span class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-6">
+                                                <input type="password" class="form-control" id="user.password" name="password" placeholder="Choose a safe one..">
+                                            </div>
+                                        </div>
+                                        {% comment %} <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="val-confirm-password">Confirm Password <span class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-6">
+                                                <input type="password" class="form-control" id="val-confirm-password" name="val-confirm-password" placeholder="..and confirm it!">
+                                            </div>
+                                        </div> {% endcomment %}
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="val-suggestions">Suggestions <span class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-6">
+                                                <textarea class="form-control" id="val-suggestions" name="val-suggestions" rows="5" placeholder="What would you like to see?"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label"><a href="#">Terms &amp; Conditions</a>  <span class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-8">
+                                                <label class="css-control css-control-primary css-checkbox" for="val-terms">
+                                                    <input type="checkbox" class="css-control-input" id="val-terms" name="val-terms" value="1"> <span class="css-control-indicator"></span> I agree to the terms</label>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-group row">
+                                            <div class="col-lg-8 ml-auto">
+                                                <input type='submit' value = 'Registrame'/>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- #/ container -->
+        </div>
+<h1> Formula de usario </h1>
+<form method = "POST" action= ""> {% csrf_token %}
+{{ form.as_p }}
+<input type='submit' value = 'Registrame'/>
+</form>
+{% endblock contenido %}
+{% endblock header %}
+{% endblock body %} 

@@ -15,7 +15,7 @@ class Persona(models.Model):
     telefono = models.CharField(max_length = 15,verbose_name= "telefono")
     barrio= models.CharField(max_length = 2000, blank = False, null= False, verbose_name= "Barrio")
     e_civil= models.CharField(max_length = 2000, blank = False, null= False, verbose_name= "Estado Civil")
-    f_nac= models.DateField()
+    f_nac = models.DateField(auto_now_add=True)
     estado = models.BooleanField()
     genero = models.BooleanField()
     user = models.OneToOneField(settings.AUTH_USER_MODEL)   

@@ -39,6 +39,7 @@
 </head>
 
 <body>
+{% include "admin/nav.html" %}
 {% block body %}
     {% block profile %}
     
@@ -53,8 +54,10 @@
         {% endblock contenido1 %}
         {% block nav %}
         {% endblock nav %}
+        {% include "admin/nav.html" %}
+
         {% block contenido2 %}
-       
+
         {% endblock contenido2 %}
         {% block footer %}
         
